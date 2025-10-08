@@ -20,6 +20,6 @@ if __name__=="__main__":
     post_name = PREFIX + args.name + SUFFIX
     imgf_name = IMG_PRE + PREFIX + args.name + IMG_SUF
 
-    os.system(f"cp _posts/2025/25-04-21-4bitquant.md _posts/2025/{post_name}")
+    os.system(f"cp _posts/2025/25-10-02-difflab1.md _posts/2025/{post_name}")
     if args.image:
         os.mkdir(imgf_name)
