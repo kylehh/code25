@@ -29,9 +29,9 @@ The ComfyUI [example](https://comfyanonymous.github.io/ComfyUI_examples/wan/) gi
 - VAE `Comfy-Org/Wan_2.1_ComfyUI_repackaged split_files/vae/wan_2.1_vae.safetensors`
 
 Change FPS from 16 to 4 to get a longer video from picture
-![Alt text](/code23/assets/images/2025/25-07-17-comfyui_files/i2vinput.png)
+![Alt text](/code25/assets/images/2025/25-07-17-comfyui_files/i2vinput.png)
 Video may not display properly online.
-![Alt text](/code23/assets/images/2025/25-07-17-comfyui_files/i2v.mp4)
+![Alt text](/code25/assets/images/2025/25-07-17-comfyui_files/i2v.mp4)
 
 ## 2 Flux Kontext
 This model is from Black Forest Lab, Germany. And it's really advanced at picture modifications
@@ -45,8 +45,8 @@ And model are listed under this [page](https://docs.comfy.org/tutorials/flux/flu
 - VAE `Comfy-Org/Lumina_Image_2.0_Repackaged split_files/vae/ae.safetensors`
 
 So I created a duck from the input picture style.
-![Alt text](/code23/assets/images/2025/25-07-17-comfyui_files/fluxinput.png)
-![Alt text](/code23/assets/images/2025/25-07-17-comfyui_files/fluxoutput.png)
+![Alt text](/code25/assets/images/2025/25-07-17-comfyui_files/fluxinput.png)
+![Alt text](/code25/assets/images/2025/25-07-17-comfyui_files/fluxoutput.png)
 
 ## 3 MultiTalk
 This would enable talking video through a picture, which is really what I needed.

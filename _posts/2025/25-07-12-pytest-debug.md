@@ -36,7 +36,7 @@ Pytest is actually a python module, so we can debug it with proper config in the
 ```
 ## 2 vLLM Processing
 Here is the workflow overview
-![Alt text](/code23/assets/images/2025/25-07-12-pytest-debug_files/wf.png)
+![Alt text](/code25/assets/images/2025/25-07-12-pytest-debug_files/wf.png)
 It starts with `MultiModalProcessor` class: `_apply_hf_processor` calls `_apply_hf_processor_main` and calls `_apply_hf_processor_text_mm` for multimodal.  
 ```python
 class BaseMultiModalProcessor(ABC):

@@ -28,7 +28,7 @@ Following statements can be all true at the same time
 2. “atomic add” (sometimes known as a “fetch-and-add”) is “nondeterministic”. 
 For example the `torch.sum()` ensures every element will be  reflected in the final sum, but it makes no guarantee about what *order* the contributions will be added. 
 Howevery, in the typical forward pass of an LLM, **there is usually not a single atomic add present**.
-![Alt text](/code23/assets/images/2025/25-09-12-deterministic_files/model.png)
+![Alt text](/code25/assets/images/2025/25-09-12-deterministic_files/model.png)
 3. Batch invariance and “determinism”
 The **primary reason** nearly all LLM inference endpoints are nondeterministic is that the load (and thus batch-size) nondeterministically varies. It also happens to CPU and TPU
 ```python
