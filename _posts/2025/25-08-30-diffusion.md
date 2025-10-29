@@ -5,7 +5,7 @@ toc: true
 categories:
   - Study
 tags:
-  - LLM
+  - VLM
 ---
 
 [Lecture 3](https://www.maartengrootendorst.com/blog/quantization/). 
