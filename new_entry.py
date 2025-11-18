@@ -8,6 +8,8 @@ IMG_SUF="_files/"
 ### python new_entry.py -n 12-23-blog-title
 ### will generate _posts/2024/24-12-23-blog-title.md
 ### and a folder assets/images/2024/24-12-23-blog-title_files
+### Categories: Study Application Code OSS
+
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
