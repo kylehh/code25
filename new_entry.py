@@ -3,9 +3,9 @@
 
 import argparse
 import os
-PREFIX="25-"
+PREFIX="26-"
 SUFFIX=".md"
-IMG_PRE="assets/images/2025/"
+IMG_PRE="assets/images/2026/"
 IMG_SUF="_files/"
 
 ### python new_entry.py -n 12-23-blog-title
@@ -16,7 +16,7 @@ IMG_SUF="_files/"
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-            "-n", "--name", type=str, default="25-00-00-name", help="Test frame name"
+            "-n", "--name", type=str, default="26-00-00-name", help="Test frame name"
     )
     parser.add_argument(
             "-i", "--image", action='store_true', help="if adding image folder"
@@ -25,6 +25,6 @@ if __name__=="__main__":
     post_name = PREFIX + args.name + SUFFIX
     imgf_name = IMG_PRE + PREFIX + args.name + IMG_SUF
 
-    os.system(f"cp _posts/2025/25-10-02-difflab1.md _posts/2025/{post_name}")
+    os.system(f"cp _posts/2025/25-10-02-difflab1.md _posts/2026/{post_name}")
     if args.image:
         os.mkdir(imgf_name)
