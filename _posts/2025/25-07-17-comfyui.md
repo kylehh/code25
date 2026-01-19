@@ -10,15 +10,22 @@ tags:
 
 It's time for a bit of fun after learning and coding with VLM for a while. ComfyUI and SB WebUI both has been very matured and quite some new models in the GenAI field.
 
-## 0 Basic tips
-- Model download  
- `huggingface-cli download --local-dir /raid/models/comfyui/models/ <repo> <path>`
+## 0 Installation and tips
+- CompyUI
+  - git clone git@github.com:Comfy-Org/ComfyUI.git
+  - pip install requirements.txt
+  - python3 main.py
+- CompyUI Manager
+  - Inside CompyUI/custom_nodes
+  - git clone git@github.com:Comfy-Org/ComfyUI-Manager.git comfyui-manager
+  - restart CompyUI
 - Model location  
   defined under `extra_model_paths.yaml`
+- Model download  
+ - `huggingface-cli download --local-dir /raid/models/comfyui/models/ <company/repo> <path>`
 - Custom Node  
-  Clone Kijia's wrapper into `custom_nodes` fodler
-- Add node manager  
-  Clone Node manager into `custom_nodes` by `git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager`
+  Clone Kijia's wrapper into `custom_nodes` folder
+
 ## 1 Wan-2.1
 Start with Wan-2.1 from Alibaba.
 The ComfyUI [example](https://comfyanonymous.github.io/ComfyUI_examples/wan/) gives all you need to start a t2v or i2v
