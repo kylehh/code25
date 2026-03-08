@@ -9,7 +9,7 @@ tags:
   - Tools
 ---
 
-最近在使用 [nanobot](https://github.com/nanobot-ai/nanobot) 这个 AI agent 框架，记录一下 skill 系统的实践，包括创建翻译工具和本地网页服务。
+最近在使用 [nanobot](https://github.com/HKUDS/nanobot) 这个 AI agent 框架，记录一下 skill 系统的实践，包括创建翻译工具和本地网页服务。
 
 ## 0 Overview
 - Nanobot 是一个轻量级 AI agent 框架
