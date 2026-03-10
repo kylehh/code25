@@ -10,7 +10,7 @@ tags:
   - Tools
 ---
 
-[Nanobot](https://github.com/nanobot-ai/nanobot) 的核心定位是 **MCP Host** — 它不仅有内置工具，还能连接任意 MCP (Model Context Protocol) 服务器，动态扩展 Agent 能力。本文详解 MCP 在 nanobot 中的工作机制。
+[Nanobot](https://github.com/HKUDS/nanobot) 的核心定位是 **MCP Host** — 它不仅有内置工具，还能连接任意 MCP (Model Context Protocol) 服务器，动态扩展 Agent 能力。本文详解 MCP 在 nanobot 中的工作机制。
 
 ## 0 MCP 是什么
 
