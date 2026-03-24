@@ -43,7 +43,53 @@ pip install nvidia-nat
 nat run --config config.yml
 ```
 
-### 1.2 Supported Agent Types
+### 1.2 How Functions Are Defined
+
+The YAML `_type: wiki_search` is just a reference. The actual implementation lives in Python with a **two-layer design**: user config params (YAML) vs LLM runtime params (function signature).
+
+```python
+# 1. Config class — maps to YAML parameters
+class WikiSearchToolConfig(FunctionBaseConfig, name="wiki_search"):
+    """Tool that retrieves relevant contexts from wikipedia search."""
+    max_results: int = 2   # ← YAML `max_results: 3` maps here
+
+# 2. Register with decorator, binding config type + framework
+@register_function(
+    config_type=WikiSearchToolConfig,
+    framework_wrappers=[LLMFrameworkEnum.LANGCHAIN]
+)
+async def wiki_search(tool_config: WikiSearchToolConfig, builder: Builder):
+    from langchain_community.document_loaders import WikipediaLoader
+
+    # 3. The actual tool function — this is what the LLM calls
+    async def _wiki_search(question: str) -> str:
+        search_docs = await WikipediaLoader(
+            query=question,
+            load_max_docs=tool_config.max_results
+        ).aload()
+        return "\n\n---\n\n".join([
+            f'<Document source="{doc.metadata["source"]}" '
+            f'page="{doc.metadata.get("page", "")}"/>\n'
+            f'{doc.page_content}\n</Document>'
+            for doc in search_docs
+        ])
+
+    # 4. Wrap with FunctionInfo — extracts signature for LLM tool schema
+    yield FunctionInfo.from_fn(
+        _wiki_search,
+        description="This tool retrieves relevant contexts from wikipedia search...",
+    )
+```
+
+Key design: NAT separates **user configuration** (YAML → `FunctionBaseConfig`) from **LLM runtime parameters** (function signature → `FunctionInfo.from_fn()`).
+
+| Layer | Source | Example |
+|-------|--------|---------|
+| User config params | YAML `max_results: 3` → `WikiSearchToolConfig` | Controls search depth |
+| LLM runtime params | Function signature `question: str` → auto-extracted by `FunctionInfo` | LLM passes at inference time |
+| Return value | `str` — formatted XML document snippets | Fed back into ReAct loop |
+
+### 1.3 Supported Agent Types
 
 | Type | Description |
 |------|-------------|
@@ -54,7 +100,7 @@ nat run --config config.yml
 | `rewoo` | Plan all steps first, then execute |
 | `mixture_of_agents` | Multiple agents collaborate |
 
-### 1.3 Architecture
+### 1.4 Architecture
 
 NAT's core is a **type registry** system. Every component (LLM, function, agent, evaluator) registers via:
 
